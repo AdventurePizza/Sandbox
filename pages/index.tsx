@@ -43,7 +43,7 @@ const Home: NextPage = () => {
     formData.append("file", fileInput.files[0]);
 
     axios.post(
-      'http://localhost:8000/tokens/zip',
+      'https://sandbox-minter.herokuapp.com/tokens/zip',
       formData,
       { headers: { 'Content-Type': 'multipart/form-data' } }
     )
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (zip) {
-      axios.get('http://localhost:8000/tokens/preview/' + zip)
+      axios.get('https://sandbox-minter.herokuapp.com/tokens/preview/' + zip)
         .then(function ({ data }) {
           console.log(data)
           setPreview(data);
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button onClick={() => {
               if (zip) {
-                axios.get('http://localhost:8000/tokens/preview/' + zip)
+                axios.get('https://sandbox-minter.herokuapp.com/tokens/preview/' + zip)
                   .then(function ({ data }) {
                     console.log(data)
                     setPreview(data);
